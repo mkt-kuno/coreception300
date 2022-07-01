@@ -44,4 +44,36 @@
 
 //#define LED_PIN                           PB2
 
+#if HAS_TMC_UART
+  /**
+   * TMC2208/TMC2209 stepper drivers
+   *
+   * Hardware serial communication ports.
+   * If undefined software serial is used according to the pins below
+   */
+  //#define X_HARDWARE_SERIAL  MSerial1
+  //#define Y_HARDWARE_SERIAL  MSerial1
+  //#define Z_HARDWARE_SERIAL  MSerial1
+  //#define E0_HARDWARE_SERIAL MSerial1
+  //#define E1_HARDWARE_SERIAL MSerial1
+
+  #define X_SERIAL_TX_PIN                   PA5
+  #define X_SERIAL_RX_PIN                   PA5
+
+  #define Y_SERIAL_TX_PIN                   PC7
+  #define Y_SERIAL_RX_PIN                   PC7
+
+  #define Z_SERIAL_TX_PIN                   PA9
+  #define Z_SERIAL_RX_PIN                   PA9
+
+  #define Z2_SERIAL_TX_PIN                  PA10
+  #define Z2_SERIAL_RX_PIN                  PA10
+
+  #define E0_SERIAL_TX_PIN                  PC13
+  #define E0_SERIAL_RX_PIN                  PC13
+
+  // Reduce baud rate to improve software serial reliability
+  #define TMC_BAUD_RATE                    19200
+#endif // HAS_TMC_UART
+
 #include "pins_MKS_ROBIN_NANO_common.h"
